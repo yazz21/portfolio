@@ -3,11 +3,11 @@
 "use client"; // Add "use client" if using motion or client hooks directly
 
 // Contact component receives colors as props
-export default function Contact({ accentColor, textColor, linkColor }: any) {
+export default function Contact({ accentColor, textColor, linkColor }) {
   return (
     <div className="text-center">
       <p className="mb-6 max-w-md mx-auto" style={{ color: accentColor }}>
-        // Open to discussing new projects and opportunities.
+         Open to discussing new projects and opportunities.
       </p>
       <div className="space-y-3">
         {/* Email */}

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 // Header component receives navigation items and colors as props
-export default function Header({ navItems, bgColor, accentColor, textColor }: any) {
+export default function Header({ navItems, bgColor, accentColor, textColor }) {
   return (
     <header
       style={{ backgroundColor: bgColor, borderBottom: `1px solid ${accentColor}` }}
@@ -24,7 +24,7 @@ export default function Header({ navItems, bgColor, accentColor, textColor }: an
         {/* Navigation */}
         <nav>
           <ul className="flex space-x-5">
-            {navItems.map((item: any) => (
+            {navItems.map((item) => (
               <motion.li
                 key={item.label}
                 whileHover={{ scale: 1.1 }}

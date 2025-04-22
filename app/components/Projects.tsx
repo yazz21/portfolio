@@ -1,10 +1,13 @@
 
 // === FILE: components/Projects.js ===
 
-"use client"; // Add "use client" if using motion or client hooks directly
+"use client";
+import Link from "next/link";
+
+ // Add "use client" if using motion or client hooks directly
 
 // Projects component receives styles and colors as props
-export default function Projects({ contentBoxStyle, textColor, accentColor, linkColor }: any) {
+export default function Projects({ contentBoxStyle, textColor, accentColor, linkColor }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
       {/* Project 1 */}
@@ -13,11 +16,11 @@ export default function Projects({ contentBoxStyle, textColor, accentColor, link
         <p className="leading-relaxed text-sm" style={{ color: accentColor }}>
           Online education system & website (Next.js). Features: student/course mgmt, exams, live classes, self-hosted.
         </p>
-        {/* Optional Links */}
-        {/* <div className="mt-3">
-          <a href="#" style={{ color: linkColor }} className="hover:text-white mr-4 text-sm">[Live Demo]</a>
-          <a href="#" style={{ color: linkColor }} className="hover:text-white text-sm">[Repo]</a>
-        </div> */}
+        Optional Links
+        <div className="mt-3">
+          <Link href="#" style={{ color: linkColor }} className="hover:text-white mr-4 text-sm">[Live Demo]</Link>
+          <Link href="#" style={{ color: linkColor }} className="hover:text-white text-sm">[Repo]</Link>
+        </div>
       </div>
 
       {/* Project 2 */}

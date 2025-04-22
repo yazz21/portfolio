@@ -3,7 +3,7 @@
 "use client"; // Add "use client" if needed for future interactions
 
 // Footer component receives colors as props
-export default function Footer({ accentColor }: any) {
+export default function Footer({ accentColor }) {
   return (
     <footer
       style={{ borderTop: `1px solid ${accentColor}`, color: accentColor }}

@@ -3,7 +3,7 @@
 "use client"; // Add "use client" if using motion or client hooks directly
 
 // About component receives styles and colors as props
-export default function About({ contentBoxStyle, textColor, linkColor }: any) {
+export default function About({ contentBoxStyle, textColor, linkColor }) {
   return (
     <div className="max-w-3xl mx-auto" style={contentBoxStyle}>
       <p className="leading-relaxed mb-4" style={{ color: textColor }}>

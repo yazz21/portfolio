@@ -3,7 +3,7 @@
 "use client"; // Add "use client" if using motion or client hooks directly
 
 // Experience component receives styles and colors as props
-export default function Experience({ contentBoxStyle, textColor, accentColor }: any) {
+export default function Experience({ contentBoxStyle, textColor, accentColor }) {
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       {/* Job 1 */}

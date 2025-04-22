@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // Hero component receives colors as props
-export default function Hero({ accentColor, textColor, linkColor }: any) {
+export default function Hero({ accentColor, textColor, linkColor }) {
   return (
     <section
       id="hero"
@@ -41,7 +41,7 @@ export default function Hero({ accentColor, textColor, linkColor }: any) {
         transition={{ duration: 0.5, delay: 0.6 }}
         style={{ color: accentColor }}
       >
-        // Full-Stack Developer | Next.js | React | Angular | .NET
+         Full-Stack Developer | Next.js | React | Angular | .NET
       </motion.p>
       {/* Social Media Links */}
       <motion.div

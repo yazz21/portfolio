@@ -29,7 +29,7 @@ const testimonials: Testimonial[] = [
 ];
 
 // Testimonials component receives styles and colors as props
-export default function Testimonials({ sectionStyle, sectionTitleStyle, contentBoxStyle, textColor, accentColor }: any) {
+export default function Testimonials({ sectionStyle, sectionTitleStyle, contentBoxStyle, textColor, accentColor }) {
 
   return (
     <section id="testimonials" style={sectionStyle}>
@@ -70,7 +70,7 @@ export default function Testimonials({ sectionStyle, sectionTitleStyle, contentB
 
               <div className="flex flex-col justify-between h-full"> {/* Ensure content takes full height */}
                 <p className="italic mb-4" style={{ color: textColor }}>
-                  "{testimonial.quote}"
+                  {testimonial.quote}
                 </p>
                 <div>
                   <p className="font-semibold" style={{ color: accentColor }}>
