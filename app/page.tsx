@@ -1,103 +1,155 @@
-import Image from "next/image";
+"use client"; // Keep "use client" here as it uses hooks/state potentially
 
-export default function Home() {
+import Head from 'next/head';
+// No longer need Link or motion here directly unless used elsewhere
+// import Link from 'next/link';
+// import { motion } from 'framer-motion';
+
+// Import the new components
+import Header from './components/Header'; // Adjust path as needed
+import Hero from './components/Hero';
+import About from "./components/About";
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import SectionWrapper from './components/SectionWrapper'; // Import the wrapper
+import Testimonials from './components/Testimonial';
+
+export default function HomePage() {
+  // Navigation items remain here or could be moved to Header if static
+  const navItems = [
+    { href: '/#hero', label: 'HOME' },
+    { href: '/#about', label: 'ABOUT' },
+    { href: '/#work', label: 'EXPERIENCE' },
+    { href: '/#projects', label: 'PROJECTS' },
+    { href: '/#contact', label: 'CONTACT' },
+  ];
+
+  // Define colors centrally
+  const bgColor = '#272727';
+  const accentColor = '#5c5959';
+  const textColor = '#E0E0E0';
+  const linkColor = '#88dd88';
+  // const linkHoverColor = '#b3ffb3'; // Can be handled via CSS hover classes if preferred
+
+  // Define section styles centrally
+  const sectionStyle = {
+    paddingTop: '4rem',
+    paddingBottom: '4rem',
+    marginTop: '2rem',
+    borderTop: `1px dashed ${accentColor}`
+  };
+  const sectionTitleStyle = "text-2xl font-bold mb-6 text-center uppercase";
+  const contentBoxStyle = {
+    backgroundColor: 'rgba(92, 89, 89, 0.1)',
+    border: `1px solid ${accentColor}`,
+    padding: '1.5rem',
+    borderRadius: '0px'
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div style={{ backgroundColor: bgColor, color: textColor }} className="min-h-screen font-mono">
+      <Head>
+        <title>Yosef Abate - Software Developer</title>
+        <meta name="description" content="Yosef Abate's professional full-stack developer portfolio." />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet" />
+      </Head>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+      {/* Render Header component */}
+      <Header
+        navItems={navItems}
+        bgColor={bgColor}
+        accentColor={accentColor}
+        textColor={textColor}
+      />
+
+      {/* Main Content Area */}
+      <main className="container mx-auto py-12 px-4">
+
+        {/* Render Hero component */}
+        <Hero
+          accentColor={accentColor}
+          textColor={textColor}
+          linkColor={linkColor}
+        />
+
+        {/* Render About section using Wrapper */}
+        <SectionWrapper
+           id="about"
+           title="About Me"
+           sectionStyle={sectionStyle}
+           sectionTitleStyle={sectionTitleStyle}
+           titleColor={textColor}
+        >
+            <About
+                contentBoxStyle={contentBoxStyle}
+                textColor={textColor}
+                linkColor={linkColor}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+        </SectionWrapper>
+
+        {/* Render Experience section using Wrapper */}
+         <SectionWrapper
+           id="work" // Keep id as 'work' for nav links
+           title="Work Experience"
+           sectionStyle={sectionStyle}
+           sectionTitleStyle={sectionTitleStyle}
+           titleColor={textColor}
+        >
+            <Experience
+                contentBoxStyle={contentBoxStyle}
+                textColor={textColor}
+                accentColor={accentColor}
+            />
+        </SectionWrapper>
+
+        {/* Render Projects section using Wrapper */}
+        <SectionWrapper
+           id="projects"
+           title="Projects"
+           sectionStyle={sectionStyle}
+           sectionTitleStyle={sectionTitleStyle}
+           titleColor={textColor}
+        >
+            <Projects
+                contentBoxStyle={contentBoxStyle}
+                textColor={textColor}
+                accentColor={accentColor}
+                linkColor={linkColor}
+            />
+        </SectionWrapper>
+
+        {/* Render Contact section using Wrapper */}
+        <SectionWrapper
+           id="contact"
+           title="Contact"
+           sectionStyle={sectionStyle}
+           sectionTitleStyle={sectionTitleStyle}
+           titleColor={textColor}
+        >
+            <Contact
+                accentColor={accentColor}
+                textColor={textColor}
+                linkColor={linkColor}
+            />
+        </SectionWrapper>
+
+        <Testimonials
+  sectionStyle={sectionStyle}
+  sectionTitleStyle={sectionTitleStyle}
+  contentBoxStyle={contentBoxStyle}
+  textColor={textColor}
+  accentColor={accentColor}
+/>
+
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      {/* Render Footer component */}
+      <Footer accentColor={accentColor} />
     </div>
   );
 }
