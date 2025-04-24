@@ -19,8 +19,8 @@ export default function Hero({ accentColor, textColor, linkColor }) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <Image src="/yosefResized.jpg" width={62} height={62} alt="Yosef Abate Profile Picture" className="rounded-full w-62 h-62 mx-auto border-2"
-          style={{ borderColor: accentColor }}/>
+        <Image src="/yosef.png" quality={100} width={400} height={400}  alt="Yosef Abate Profile Picture" className="rounded-full  mx-auto border-2"
+          style={{ borderColor: accentColor  }}/>
   
       </motion.div>
       {/* Name/Title */}
