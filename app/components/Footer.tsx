@@ -1,6 +1,4 @@
-// === FILE: components/Footer.js ===
-
-"use client"; // Add "use client" if needed for future interactions
+"use client"; 
 
 // Footer component receives colors as props
 export default function Footer({ accentColor }) {

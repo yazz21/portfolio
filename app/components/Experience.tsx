@@ -1,6 +1,4 @@
-// === FILE: components/Experience.js ===
-
-"use client"; // Add "use client" if using motion or client hooks directly
+"use client"; 
 
 // Experience component receives styles and colors as props
 export default function Experience({ contentBoxStyle, textColor, accentColor }) {

@@ -1,6 +1,7 @@
-// === FILE: components/Contact.js ===
+"use client";
+import Link from "next/link";
 
-"use client"; // Add "use client" if using motion or client hooks directly
+ 
 
 // Contact component receives colors as props
 export default function Contact({ accentColor, textColor, linkColor }) {
@@ -13,11 +14,19 @@ export default function Contact({ accentColor, textColor, linkColor }) {
         {/* Email */}
         <p className="text-base">
           <span style={{ color: accentColor }}>Email:</span>{' '}
-          <a href="mailto:Josephabate1921@gmail.com"
+          <Link href="mailto:Josephabate1921@gmail.com"
              style={{ color: linkColor }}
              className="hover:text-white transition-colors duration-200">
             Josephabate1921@gmail.com
-          </a>
+          </Link>
+        </p>
+        <p className="text-base">
+          <span style={{ color: accentColor }}>Email:</span>{' '}
+          <Link href="mailto:Josephabate1921@gmail.com"
+             style={{ color: linkColor }}
+             className="hover:text-white transition-colors duration-200">
+            it-unit@htu.edu.et
+          </Link>
         </p>
         {/* Phone */}
         <p className="text-base">
@@ -26,16 +35,16 @@ export default function Contact({ accentColor, textColor, linkColor }) {
         </p>
         {/* Social Links */}
         <div className="flex justify-center space-x-6 pt-3">
-          <a href="https://github.com/yazz21" target="_blank" rel="noopener noreferrer"
+          <Link href="https://github.com/yazz21" target="_blank" rel="noopener noreferrer"
              style={{ color: linkColor }}
              className="hover:text-white transition-colors duration-200 text-base">
-            [GitHub]
-          </a>
-          <a href="https://linkedin.com/in/yoseph-abate" target="_blank" rel="noopener noreferrer"
+              [GitHub]
+             </Link>
+          <Link href="https://linkedin.com/in/yoseph-abate" target="_blank" rel="noopener noreferrer"
              style={{ color: linkColor }}
              className="hover:text-white transition-colors duration-200 text-base">
             [LinkedIn]
-          </a>
+            </Link>
         </div>
       </div>
     </div>

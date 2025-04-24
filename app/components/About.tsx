@@ -1,7 +1,4 @@
-// === FILE: components/About.js ===
-
-"use client"; // Add "use client" if using motion or client hooks directly
-
+"use client";
 // About component receives styles and colors as props
 export default function About({ contentBoxStyle, textColor, linkColor }) {
   return (

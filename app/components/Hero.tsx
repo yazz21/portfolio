@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 
-// Hero component receives colors as props
 export default function Hero({ accentColor, textColor, linkColor }) {
   return (
     <section

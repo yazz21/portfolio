@@ -1,12 +1,6 @@
-
-// === FILE: components/Projects.js ===
-
 "use client";
 import Link from "next/link";
 
- // Add "use client" if using motion or client hooks directly
-
-// Projects component receives styles and colors as props
 export default function Projects({ contentBoxStyle, textColor, accentColor, linkColor }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">

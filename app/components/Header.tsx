@@ -5,9 +5,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 // import { fira_code } from '../fonts';
-// import { FiMenu, FiX } from 'react-icons/fi'; // Ensure you have react-icons installed
 
-// Define the animation variants for the mobile menu
 const mobileMenuVariants = {
   open: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 20, damping: 20 } },
   closed: { opacity: 0, x: "-100%", transition: { duration: 0.3 } },
