@@ -1,9 +1,6 @@
 "use client"; // Keep "use client" here as it uses hooks/state potentially
 
 import Head from 'next/head';
-// No longer need Link or motion here directly unless used elsewhere
-// import Link from 'next/link';
-// import { motion } from 'framer-motion';
 
 // Import the new components
 import Header from './components/Header'; // Adjust path as needed
@@ -54,9 +51,6 @@ export default function HomePage() {
         <title>Yosef Abate - Software Developer</title>
         <meta name="description" content="Yosef Abate's professional full-stack developer portfolio." />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet" />
       </Head>
 
       {/* Render Header component */}

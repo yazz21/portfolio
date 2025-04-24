@@ -1,10 +1,34 @@
-"use client"; 
+"use client";
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+// import { fira_code } from '../fonts';
+// import { FiMenu, FiX } from 'react-icons/fi'; // Ensure you have react-icons installed
+
+// Define the animation variants for the mobile menu
+const mobileMenuVariants = {
+  open: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 20, damping: 20 } },
+  closed: { opacity: 0, x: "-100%", transition: { duration: 0.3 } },
+};
+
+// Define the types for your props to ensure type safety
+interface HeaderProps {
+  navItems: { label: string; href: string }[];
+  bgColor: string;
+  accentColor: string;
+  textColor: string;
+}
 
 // Header component receives navigation items and colors as props
-export default function Header({ navItems, bgColor, accentColor, textColor }) {
+export default function Header({ navItems, bgColor, accentColor, textColor }: HeaderProps) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <header
       style={{ backgroundColor: bgColor, borderBottom: `1px solid ${accentColor}` }}
@@ -17,12 +41,28 @@ export default function Header({ navItems, bgColor, accentColor, textColor }) {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Link href="/#hero" className="text-xl font-bold" style={{ color: textColor }}>
+          <Link href="/#hero" className={`text-xl font-bold `} style={{ color: textColor }}>
             YOSEF_ABATE $ <span className="animate-pulse">_</span>
           </Link>
         </motion.div>
-        {/* Navigation */}
-        <nav>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button
+            onClick={toggleMobileMenu}
+            className="text-xl z-50 focus:outline-none"
+            style={{ position: 'relative' }} // Ensure button can be a stacking context root
+          >
+            {isMobileMenuOpen ? (
+              <Image src={"/close.png"} width={22} height={22} alt={""} />
+            ) : (
+              <Image src={"/menu.png"} width={22} height={22} alt={""} />
+            )}
+          </button>
+        </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:block">
           <ul className="flex space-x-5">
             {navItems.map((item) => (
               <motion.li
@@ -42,6 +82,37 @@ export default function Header({ navItems, bgColor, accentColor, textColor }) {
             ))}
           </ul>
         </nav>
+
+        {/* Mobile Navigation Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.nav
+              className="fixed top-0 left-0 h-full w-screen bg-opacity-90 backdrop-blur-md flex flex-col justify-center items-center space-y-8 z-40 md:hidden" // Changed z-index to z-40
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={mobileMenuVariants}
+            >
+              {navItems.map((item) => (
+                <motion.div
+                  key={item.label}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-lg"
+                >
+                  <Link
+                    href={item.href}
+                    style={{ color: textColor }}
+                    className="hover:text-white transition-colors duration-200"
+                    onClick={toggleMobileMenu} // Close menu on item click
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
