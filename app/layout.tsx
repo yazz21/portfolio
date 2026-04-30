@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Head from 'next/head';
+import { ThemeProvider } from "./components/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,16 +42,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Head>
-        <title>Yosef Abate - Software Developer</title>
-        <meta name="description" content="Yosef Abate's professional full-stack developer portfolio." />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-        {children}
+          <title>Yosef Abate - Software Developer</title>
+          <meta name="description" content="Yosef Abate's professional full-stack developer portfolio." />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="system"
+          enableSystem
+          themes={['light', 'dark', 'vs-dark', 'vim']}
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

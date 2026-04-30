@@ -13,8 +13,8 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     quote: "Yosef is a highly skilled and dedicated developer. He consistently delivered high-quality work and was a pleasure to collaborate with.",
-    name: "Jane Doe",
-    title: "Senior Developer at Tech Corp",
+    name: "Elyas Abate ",
+    title: "Senior Software Developer at Holy Trinity University",
   },
   {
     quote: "I was impressed by Yosef's ability to quickly understand complex requirements and translate him into efficient code.",
@@ -29,18 +29,17 @@ const testimonials: Testimonial[] = [
 ];
 
 // Testimonials component receives styles and colors as props
-export default function Testimonials({ sectionStyle, sectionTitleStyle, contentBoxStyle, textColor, accentColor }) {
+export default function Testimonials({ sectionStyle, sectionTitleStyle, contentBoxStyle }: { sectionStyle?: any, sectionTitleStyle?: string, contentBoxStyle?: string }) {
 
   return (
     <section id="testimonials" style={sectionStyle}>
       <div className="container mx-auto px-4">
         <motion.h2
-          className={sectionTitleStyle}
+          className={`${sectionTitleStyle} text-[var(--foreground)]`}
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6 }}
-          style={{ color: textColor }}
         >
           Testimonials
         </motion.h2>
@@ -50,8 +49,7 @@ export default function Testimonials({ sectionStyle, sectionTitleStyle, contentB
             <motion.div
               key={index}
               // Apply initial box styles
-              style={contentBoxStyle}
-              className="relative overflow-hidden " // Added relative and overflow hidden for gradient
+              className={`relative overflow-hidden ${contentBoxStyle}`} // Added relative and overflow hidden for gradient
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -61,7 +59,7 @@ export default function Testimonials({ sectionStyle, sectionTitleStyle, contentB
                 // We can't directly animate background gradients easily with Framer Motion
                 // A common technique is to use a pseudo-element or animate boxShadow
                 // Let's animate a subtle box shadow for a "vibrant glow" effect
-                boxShadow: `0 0 20px #88dd88`, // Adjust spread and color as needed
+                boxShadow: `0 0 20px var(--link)`, // Adjust spread and color as needed
                 transition: { duration: 0.3 }
               }}
             >
@@ -69,15 +67,15 @@ export default function Testimonials({ sectionStyle, sectionTitleStyle, contentB
                    but handle the hover effect with boxShadow */}
 
               <div className="flex flex-col justify-between h-full"> {/* Ensure content takes full height */}
-                <p className="italic mb-4" style={{ color: textColor }}>
+                <p className="italic mb-4 text-[var(--foreground)]">
                   {testimonial.quote}
                 </p>
                 <div>
-                  <p className="font-semibold" style={{ color: accentColor }}>
+                  <p className="font-semibold text-[var(--accent)]">
                     - {testimonial.name}
                   </p>
                   {testimonial.title && (
-                    <p className="text-sm" style={{ color: accentColor }}>
+                    <p className="text-sm text-[var(--accent)]">
                       {testimonial.title}
                     </p>
                   )}

@@ -1,11 +1,10 @@
 "use client"; 
 
-// Footer component receives colors as props
-export default function Footer({ accentColor }) {
+// Footer component
+export default function Footer() {
   return (
     <footer
-      style={{ borderTop: `1px solid ${accentColor}`, color: accentColor }}
-      className="py-4 text-center text-xs mt-12"
+      className="py-4 text-center text-xs mt-12 border-t border-dashed border-[var(--border)] text-[var(--accent)]"
     >
       <p>&copy; {new Date().getFullYear()} Yosef Abate // Addis Ababa, Ethiopia</p>
     </footer>
