@@ -33,7 +33,7 @@ export default function Terminal() {
           <div className="p-2 text-xs font-mono">
             <p className="text-blue-400">Debugger attached.</p>
             <p className="text-gray-400">Loading variables...</p>
-            <p className="text-purple-400">Object &#123; name: "Yosef", role: "Software Developer", location: "Addis Ababa" &#125;</p>
+            <p className="text-purple-400">Object &#123; name: &quot;Yosef&quot;, role: &quot;Software Developer&quot;, location: &quot;Addis Ababa&quot; &#125;</p>
             <div className="flex items-center mt-2">
               <span className="text-blue-400 mr-2">&gt;</span>
               <span className="animate-pulse">_</span>

@@ -34,7 +34,7 @@ export default function RightSidebar() {
                 <code>
                   - width=&#123;400&#125; height=&#123;400&#125;<br/>
                   + width=&#123;150&#125; height=&#123;150&#125;<br/>
-                  + className="... w-40 h-40 object-cover"
+                  + className=&quot;... w-40 h-40 object-cover&quot;
                 </code>
               </div>
             </div>

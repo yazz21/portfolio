@@ -29,7 +29,7 @@ const testimonials: Testimonial[] = [
 ];
 
 // Testimonials component receives styles and colors as props
-export default function Testimonials({ sectionStyle, sectionTitleStyle, contentBoxStyle }: { sectionStyle?: any, sectionTitleStyle?: string, contentBoxStyle?: string }) {
+export default function Testimonials({ sectionStyle, sectionTitleStyle, contentBoxStyle }: { sectionStyle?: React.CSSProperties, sectionTitleStyle?: string, contentBoxStyle?: string }) {
 
   return (
     <section id="testimonials" style={sectionStyle}>
