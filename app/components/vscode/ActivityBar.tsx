@@ -13,7 +13,7 @@ export default function ActivityBar() {
   };
 
   return (
-    <div className="w-12 h-full bg-[#333333] dark:bg-[var(--box-bg)] border-r border-[var(--border)] flex flex-col items-center justify-between py-4 select-none">
+    <div className="w-12 h-full bg-[#333333] dark:bg-[var(--box-bg)] border-r border-[var(--border)] hidden md:flex flex-col items-center justify-between py-4 select-none">
       <div className="flex flex-col items-center space-y-6 w-full">
         {/* Explorer Icon */}
         <div 

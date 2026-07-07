@@ -9,7 +9,7 @@ const navItems = [
   { id: 'experience', label: 'experience.tsx', isFolder: false, icon: 'tsx' },
   { id: 'projects', label: 'projects.tsx', isFolder: false, icon: 'tsx' },
   { id: 'contact', label: 'contact.tsx', isFolder: false, icon: 'tsx' },
-  { id: 'testimonials', label: 'testimonials.tsx', isFolder: false, icon: 'tsx' },
+  // { id: 'testimonials', label: 'testimonials.tsx', isFolder: false, icon: 'tsx' },
 ];
 
 const mockSearchContent = [

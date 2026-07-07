@@ -25,6 +25,8 @@ interface VSCodeContextType {
   setActiveTerminalTab: (tab: "problems" | "output" | "debug" | "terminal") => void;
   toggleRightSidebar: () => void;
   toggleTerminal: () => void;
+  isMobileMenuOpen: boolean;
+  toggleMobileMenu: () => void;
 }
 
 const VSCodeContext = createContext<VSCodeContextType | undefined>(undefined);
@@ -38,6 +40,7 @@ export function VSCodeProvider({ children }: { children: ReactNode }) {
   const [activeTerminalTab, setActiveTerminalTab] = useState<"problems" | "output" | "debug" | "terminal">("terminal");
   const [isRightSidebarOpen, setIsRightSidebarOpen] = useState(false);
   const [isTerminalOpen, setIsTerminalOpen] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const openTab = (id: string, title: string) => {
     if (!openTabs.find((tab) => tab.id === id)) {
@@ -62,6 +65,7 @@ export function VSCodeProvider({ children }: { children: ReactNode }) {
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   const toggleRightSidebar = () => setIsRightSidebarOpen(!isRightSidebarOpen);
   const toggleTerminal = () => setIsTerminalOpen(!isTerminalOpen);
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
     <VSCodeContext.Provider
@@ -83,6 +87,8 @@ export function VSCodeProvider({ children }: { children: ReactNode }) {
         setActiveTerminalTab,
         toggleRightSidebar,
         toggleTerminal,
+        isMobileMenuOpen,
+        toggleMobileMenu,
       }}
     >
       {children}

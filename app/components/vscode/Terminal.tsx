@@ -7,7 +7,7 @@ export default function Terminal() {
   if (!isTerminalOpen) {
     return (
       <div 
-        className="h-6 bg-[var(--background)] border-t border-[var(--border)] flex items-center px-4 cursor-pointer hover:bg-white/5 select-none"
+        className="h-6 bg-[var(--background)] border-t border-[var(--border)] hidden md:flex items-center px-4 cursor-pointer hover:bg-white/5 select-none"
         onClick={toggleTerminal}
       >
         <span className="text-xs text-[var(--accent)]">Terminal (Collapsed) - Click to expand</span>
@@ -60,7 +60,7 @@ export default function Terminal() {
   };
 
   return (
-    <div className="h-48 border-t border-[var(--border)] bg-[#1e1e1e] dark:bg-[var(--box-bg)] flex flex-col font-mono text-xs select-none">
+    <div className="h-48 border-t border-[var(--border)] bg-[#1e1e1e] dark:bg-[var(--box-bg)] hidden md:flex flex-col font-mono text-xs select-none">
       {/* Terminal Tabs */}
       <div className="flex items-center justify-between px-4 h-8 border-b border-[var(--border)]">
         <div className="flex space-x-4">

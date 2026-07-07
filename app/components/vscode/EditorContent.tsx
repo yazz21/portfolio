@@ -76,7 +76,7 @@ export default function EditorContent() {
             <SectionWrapper id="contact" title="Contact" sectionStyle={sectionStyle} sectionTitleStyle={sectionTitleStyle}>
               <Contact />
             </SectionWrapper>
-            <Testimonials sectionStyle={sectionStyle} sectionTitleStyle={sectionTitleStyle} contentBoxStyle={contentBoxStyle} />
+            {/* <Testimonials sectionStyle={sectionStyle} sectionTitleStyle={sectionTitleStyle} contentBoxStyle={contentBoxStyle} /> */}
             <Footer />
           </>
         );

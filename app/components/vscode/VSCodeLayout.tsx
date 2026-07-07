@@ -8,14 +8,16 @@ import Terminal from "./Terminal";
 import StatusBar from "./StatusBar";
 import EditorContent from "./EditorContent";
 import RightSidebar from "./RightSidebar";
+import MobileMenu from "./MobileMenu";
 import { VSCodeProvider } from "../../context/VSCodeContext";
 
 export default function VSCodeLayout() {
   return (
     <VSCodeProvider>
-      <div className="flex flex-col h-screen w-full bg-[var(--background)] text-[var(--foreground)] overflow-hidden font-mono text-sm transition-colors duration-300">
+      <div className="flex flex-col h-[100dvh] md:h-screen w-full bg-[var(--background)] text-[var(--foreground)] overflow-hidden font-mono text-sm transition-colors duration-300">
       {/* Top Title Bar */}
       <TitleBar />
+      <MobileMenu />
 
       {/* Main Workspace */}
       <div className="flex flex-1 overflow-hidden">

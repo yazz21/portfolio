@@ -10,7 +10,7 @@ export default function Hero() {
     <section
       id="hero"
       className="text-center flex flex-col items-center justify-center"
-      style={{ minHeight: 'calc(100vh - 50px)' }} // Adjusted height calculation based on header/footer
+      style={{ minHeight: 'calc(100dvh - 50px)' }} // Adjusted height calculation based on header/footer
     >
       {/* Profile Picture */}
       <motion.div
@@ -19,7 +19,7 @@ export default function Hero() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <Image src="/yosef.png" quality={100} width={150} height={150} alt="Yosef Abate Profile Picture" className="rounded-full mx-auto border-2 border-[var(--border)] w-40 h-40 object-cover" />
+        <Image src="/yosef.png" quality={100} width={150} height={150} alt="Yosef Abate Profile Picture" className="rounded-full mx-auto border-2 border-[var(--border)] w-40 h-40 object-cover mb-8" />
   
       </motion.div>
       {/* Name/Title */}

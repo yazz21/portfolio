@@ -11,13 +11,26 @@ export default function TitleBar() {
     toggleTerminal, 
     isTerminalOpen, 
     toggleRightSidebar, 
-    isRightSidebarOpen 
+    isRightSidebarOpen,
+    toggleMobileMenu
   } = useVSCode();
 
   return (
     <div className="flex items-center justify-between px-3 h-8 bg-[#323233] dark:bg-[var(--box-bg)] text-[#cccccc] text-xs select-none border-b border-[var(--border)]">
       {/* Left: Window Controls & Menu */}
       <div className="flex items-center space-x-4">
+        {/* Mobile Hamburger Menu */}
+        <div 
+          className="md:hidden cursor-pointer hover:bg-white/10 p-1 rounded -ml-1 mr-1"
+          onClick={toggleMobileMenu}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </div>
+
         {/* Fake Mac Window Controls */}
         <div className="flex space-x-2">
           <div className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-600"></div>
